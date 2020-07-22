@@ -15,7 +15,8 @@ BASE_REPO=https://github.com/ccuffs
 SITE_TARGET_FOLDER=/var/www/cc.uffs.edu.br
 SITE_SRC_FOLDER=/tmp/cc.uffs.edu.br.git
 
-JEKYLL_CMD="/home/site/gems/bin/bundle exec jekyll"
+BUNDLE_CMD="bundle"
+JEKYLL_CMD="$BUNDLE_CMD exec jekyll"
 
 #########################################################
 # Functions
@@ -78,6 +79,10 @@ log "Deploy started."
 # Deploy main site using jekyll
 
 getrepo "$BASE_REPO/cc.uffs.edu.br" $SITE_SRC_FOLDER
+
+log "Install jekyll dependencies..."
+cd $SITE_SRC_FOLDER
+$BUNDLE_CMD update
 
 log "Build website using jekyll..."
 mkdir -p $SITE_TARGET_FOLDER/
