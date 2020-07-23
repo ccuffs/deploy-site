@@ -15,7 +15,7 @@ BASE_REPO=https://github.com/ccuffs
 SITE_TARGET_FOLDER=/var/www/cc.uffs.edu.br
 SITE_SRC_FOLDER=/tmp/cc.uffs.edu.br.git
 
-BUNDLE_CMD="bundle"
+BUNDLE_CMD="/usr/local/bin/bundle"
 JEKYLL_CMD="$BUNDLE_CMD exec jekyll"
 
 #########################################################
