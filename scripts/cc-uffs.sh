@@ -80,6 +80,11 @@ getrepo "$BASE_REPO/cc.uffs.edu.br" $SITE_SRC_FOLDER
 
 log "Install jekyll dependencies..."
 cd $SITE_SRC_FOLDER
+
+# Add info about current commit
+git log -1 --pretty='format:text: "%H%d %aN (%aD): %s"' > _data/commit_info.yml
+
+# Install and update all bundle stuff
 $BUNDLE_CMD update
 
 log "Build website using jekyll..."
@@ -94,5 +99,7 @@ deploy erbd2019
 
 # Ensure /horarios also work
 mkncp $SITE_TARGET_FOLDER/horario $SITE_TARGET_FOLDER/horarios
+
+
 
 log "All good! Have a coffee."
